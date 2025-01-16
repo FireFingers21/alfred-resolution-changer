@@ -1,6 +1,6 @@
 #!/bin/zsh --no-rcs
 
-favouritesFile="${alfred_workflow_data}/${persistentID}.favourites"
+favouritesFile="${alfred_workflow_data}/${serialID}.favourites"
 
 newFavourites=$(awk -v favourite="$1" '
     /^mode/ {

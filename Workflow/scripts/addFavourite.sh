@@ -1,6 +1,6 @@
 #!/bin/zsh --no-rcs
 
-favouritesFile="${alfred_workflow_data}/${persistentID}.favourites"
+favouritesFile="${alfred_workflow_data}/${serialID}.favourites"
 
 duplicate=false
 while IFS= read -r line; do
