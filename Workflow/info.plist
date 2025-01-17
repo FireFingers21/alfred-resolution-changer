@@ -231,7 +231,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>displayplacer "id:${persistentID} mode:${1}"</string>
+				<string>displayplacer "id:s${serialID} mode:${1}"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -784,7 +784,7 @@ Configure the [Hotkey](https://www.alfredapp.com/help/workflows/triggers/hotkey/
 		</dict>
 	</array>
 	<key>version</key>
-	<string>2025.1.1</string>
+	<string>2025.1.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/FireFingers21/alfred-resolution-changer</string>
 </dict>
