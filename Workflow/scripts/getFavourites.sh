@@ -33,7 +33,7 @@ awk -v serialID="$serialID" -v currentSubtitle="$currentSubtitle" -v sort_favour
             icon=""
             currentMode=""
         }
-        printf "{%s\"title\": \"Mode %s — %s%s %s\", \"subtitle\": \"%s %s\", \"arg\": \"%s\", \"valid\": %s, \"icon\": {\"path\": \"%s\"}, \"mods\": {\"shift\": {\"valid\": true}, \"ctrl\": {\"arg\": \"%s\", \"valid\": true}}},", uid, mode, substr($3, 5), hertz, scaled, $0, currentMode, mode, valid, icon, mode
+        printf "{%s\"title\": \"Mode %s — %s%s %s\", \"subtitle\": \"%s %s\", \"arg\": \"%s\", \"valid\": %s, \"icon\": {\"path\": \"%s\"}, \"variables\": {\"serialID\": \"%s\"}, \"mods\": {\"shift\": {\"valid\": true}, \"ctrl\": {\"arg\": \"%s\", \"valid\": true}}},", uid, mode, substr($3, 5), hertz, scaled, $0, currentMode, mode, valid, icon, serialID, mode
     }
     END {
         print "{\"title\": \"Add Favourites...\", \"arg\": \"addFavourite\", \"icon\": {\"path\": \"images/favourite.png\"}, \"mods\": {\"ctrl\": {\"subtitle\": \"\", \"valid\": false}}}]}"
