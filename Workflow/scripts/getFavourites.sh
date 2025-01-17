@@ -4,7 +4,7 @@
 if [[ -z "${serialID}" ]]; then
     displayList=$(displayplacer list)
     currentSubtitle=$(awk '/current mode$/ { subtitle=$0; sub(" <-- current mode", "", subtitle); print substr(subtitle, 3) }' <<< "${displayList}")
-    serialID=$(awk '/^Serial screen id:/ { print $NF }' <<< "${displayList}")
+    serialID=$(awk '/^Serial screen id:/ { print substr($NF, 2) }' <<< "${displayList}")
 fi
 
 favouritesFile="${alfred_workflow_data}/${serialID}.favourites"
