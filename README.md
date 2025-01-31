@@ -2,6 +2,8 @@
 
 Quickly change the resolution of your displays in Alfred
 
+[⤓ Install from the Alfred Gallery](https://alfred.app/workflows/firefingers21/resolution-changer/)
+
 ## Setup
 
 This workflow requires [displayplacer](https://github.com/jakehilborn/displayplacer) to function, which can be installed [via Homebrew](https://formulae.brew.sh/formula/displayplacer).
