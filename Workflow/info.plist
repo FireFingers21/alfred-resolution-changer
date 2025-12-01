@@ -791,7 +791,7 @@ When adding favourites, it may be easier to first set the resolution in System S
 		</dict>
 	</array>
 	<key>version</key>
-	<string>2025.1.2</string>
+	<string>2025.11</string>
 	<key>webaddress</key>
 	<string>https://github.com/FireFingers21/alfred-resolution-changer</string>
 </dict>
