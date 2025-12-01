@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.firefingers21.resolutionchanger</string>
+	<key>category</key>
+	<string>Shared</string>
 	<key>connections</key>
 	<dict>
 		<key>0292824A-1364-412F-8E6A-B43DA9CED533</key>
@@ -34,7 +36,7 @@
 				<key>modifiers</key>
 				<integer>262144</integer>
 				<key>modifiersubtext</key>
-				<string>Remove from Favourites</string>
+				<string>⌃↩ Remove from Favourites</string>
 				<key>vitoclose</key>
 				<true/>
 			</dict>
@@ -108,7 +110,7 @@
 				<key>modifiers</key>
 				<integer>1048576</integer>
 				<key>modifiersubtext</key>
-				<string>Open Displays in System Settings</string>
+				<string>⌘↩ Open Displays in System Settings</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -553,31 +555,31 @@ This workflow requires [displayplacer](https://github.com/jakehilborn/displaypla
 
 ## Usage
 
-Search for available displays with the `resolution` keyword. Select a display to modify its resolution.
+Search for available displays via the `resolution` keyword. Select a display to change its resolution.
 
 ![Searching for displays](images/about/keyword.png)
 
-* &lt;kbd&gt;↩&lt;/kbd&gt; Show resolutions for selected display
-* &lt;kbd&gt;⌘&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Open Displays settings in System Settings
+* &lt;kbd&gt;↩&lt;/kbd&gt; Show resolutions for selected display.
+* &lt;kbd&gt;⌘&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Open Displays settings in System Settings.
 
 Select a resolution to activate it, or add a new resolution to favourites. Resolutions must be favourited before they can be activated.
 
-![Searching for favourites](images/about/favouritesView.png)
+![Searching for favourites](images/about/favourites.png)
 
-* &lt;kbd&gt;↩&lt;/kbd&gt; Activate favourited resolution
-* &lt;kbd&gt;⌃&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Delete favourited resolution
-* &lt;kbd&gt;⇧&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Return to Display Selection
+* &lt;kbd&gt;↩&lt;/kbd&gt; Activate favourited resolution.
+* &lt;kbd&gt;⌃&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Delete favourited resolution.
+* &lt;kbd&gt;⇧&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Return to Display Selection.
 
 Choose from the list of available resolutions to add as a favourite. Type to filter. The current resolution is always listed first.
 
-![Searching for resolutions](images/about/resolutionsView.png)
+![Searching for resolutions](images/about/resolutions.png)
 
-* &lt;kbd&gt;↩&lt;/kbd&gt; Add resolution to favourites
-* &lt;kbd&gt;⇧&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Return to Favourites Selection
+* &lt;kbd&gt;↩&lt;/kbd&gt; Add resolution to favourites.
+* &lt;kbd&gt;⇧&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Return to Favourites Selection.
 
 Configure the [Hotkey](https://www.alfredapp.com/help/workflows/triggers/hotkey/) as a faster shortcut to change resolutions.
 
-**Note**: When adding favourites, it may be easier to first set the resolution in System Settings, then favourite the current resolution from the workflow as shown above.</string>
+When adding favourites, it may be easier to first set the resolution in System Settings, then favourite the current resolution from the workflow as shown above.</string>
 	<key>uidata</key>
 	<dict>
 		<key>0292824A-1364-412F-8E6A-B43DA9CED533</key>
@@ -741,7 +743,7 @@ Configure the [Hotkey](https://www.alfredapp.com/help/workflows/triggers/hotkey/
 				<string>Bypass Display Selection</string>
 			</dict>
 			<key>description</key>
-			<string>Optionally bypass the display selection screen if only one display is connected</string>
+			<string>Optionally bypass the display selection screen if only one display is connected.</string>
 			<key>label</key>
 			<string>Keyword Behaviour</string>
 			<key>type</key>
@@ -779,7 +781,7 @@ Configure the [Hotkey](https://www.alfredapp.com/help/workflows/triggers/hotkey/
 				<string>Sort Favourites</string>
 			</dict>
 			<key>description</key>
-			<string>Choose whether to sort results by usage</string>
+			<string>Choose whether to sort results by usage.</string>
 			<key>label</key>
 			<string></string>
 			<key>type</key>
@@ -788,8 +790,6 @@ Configure the [Hotkey](https://www.alfredapp.com/help/workflows/triggers/hotkey/
 			<string>sort_favourites</string>
 		</dict>
 	</array>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
 	<string>2025.1.2</string>
 	<key>webaddress</key>
