@@ -1,6 +1,6 @@
 #!/bin/zsh --no-rcs
 
-awk -v currentTitle="$currentTitle" -v currentSubtitle="$currentSubtitle" -v serialID="$serialID" '
+awk -v currentTitle="${currentTitle}" -v currentSubtitle="${currentSubtitle}" -v serialID="${serialID}" '
     BEGIN {
         print "{\"items\": ["
         printf "{\"title\": \"%s\", \"subtitle\": \"%s\", \"arg\": \"%s\", \"icon\": {\"path\": \"images/current.png\"}},", currentTitle, currentSubtitle, currentSubtitle
@@ -18,7 +18,7 @@ awk -v currentTitle="$currentTitle" -v currentSubtitle="$currentSubtitle" -v ser
                 hertz=""
                 if ($5=="scaling:on") {scaled="(Scaled)"} else {scaled=""}
             }
-            printf "{\"title\": \"Mode %s — %s%s %s\", \"subtitle\": \"%s\", \"arg\": \"%s\"},", mode, substr($3, 5), hertz, scaled, substr(subtitle, 5), substr($0, 3)
+            printf "{\"title\": \"Mode %s — %s%s %s\", \"subtitle\": \"%s\", \"arg\": \"%s\", \"icon\": {\"path\": \"images/iconLarge.png\"}},", mode, substr($3, 5), hertz, scaled, substr(subtitle, 5), substr($0, 3)
         }
     }
     /^$/ { if (run=="true") { exit } }

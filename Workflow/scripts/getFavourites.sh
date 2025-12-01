@@ -10,7 +10,7 @@ fi
 favouritesFile="${alfred_workflow_data}/${serialID}.favourites"
 [[ -f "${favouritesFile}" ]] || (mkdir -p "${alfred_workflow_data}" && touch "${favouritesFile}" && xattr -w com.apple.metadata:kMDItemWhereFroms "${deviceName}" "${favouritesFile}")
 
-awk -v serialID="$serialID" -v currentSubtitle="$currentSubtitle" -v sort_favourites="$sort_favourites" '
+awk -v serialID="${serialID}" -v currentSubtitle="${currentSubtitle}" -v sort_favourites="${sort_favourites}" '
     BEGIN {
         print "{\"items\": ["
     }
@@ -18,7 +18,7 @@ awk -v serialID="$serialID" -v currentSubtitle="$currentSubtitle" -v sort_favour
         mode=$2; sub(/:$/, "", mode)
         if (sort_favourites==1) {uid="\"uid\": \"" serialID "_" mode "\", "} else {uid=""}
         if ($4 ~ "hz") {
-            hertz="@" substr($4, 4) "Hz"
+            hertz=" - " substr($4, 4) "Hz"
             if ($6=="scaling:on") {scaled="(Scaled)"} else {scaled=""}
         } else {
             hertz=""
@@ -28,14 +28,15 @@ awk -v serialID="$serialID" -v currentSubtitle="$currentSubtitle" -v sort_favour
             valid="false"
             icon="images/current.png"
             currentMode="<-- current mode"
+            subtitle=$0; sub(" <-- current mode", "", subtitle)
         } else {
             valid="true"
-            icon=""
+            icon="images/external.png"
             currentMode=""
         }
-        printf "{%s\"title\": \"Mode %s — %s%s %s\", \"subtitle\": \"%s %s\", \"arg\": \"%s\", \"valid\": %s, \"icon\": {\"path\": \"%s\"}, \"variables\": {\"serialID\": \"%s\"}, \"mods\": {\"shift\": {\"valid\": true}, \"ctrl\": {\"arg\": \"%s\", \"valid\": true}}},", uid, mode, substr($3, 5), hertz, scaled, $0, currentMode, mode, valid, icon, serialID, mode
+        printf "{%s\"title\": \"%s%s %s\", \"subtitle\": \"%s %s\", \"arg\": \"%s\", \"valid\": %s, \"icon\": {\"path\": \"%s\"}, \"variables\": {\"serialID\": \"%s\"}, \"mods\": {\"shift\": {\"valid\": true}, \"ctrl\": {\"arg\": \"%s\", \"valid\": true}}},", uid, substr($3, 5), hertz, scaled, $0, currentMode, mode, valid, icon, serialID, mode
     }
     END {
-        print "{\"title\": \"Add Favourites...\", \"arg\": \"addFavourite\", \"icon\": {\"path\": \"images/favourite.png\"}, \"mods\": {\"ctrl\": {\"subtitle\": \"\", \"valid\": false}}}]}"
+        printf "{\"title\": \"Add Favourites...\", \"arg\": \"addFavourite\", \"icon\": {\"path\": \"images/favourite.png\"}, \"variables\": {\"serialID\": \"%s\", \"currentTitle\": \"Current resolution: %s%s %s\", \"currentSubtitle\": \"%s\"}, \"mods\": {\"ctrl\": {\"subtitle\": \"\", \"valid\": false}}}]}", serialID, resolution, hertz, scaled, subtitle
     }
 ' "${favouritesFile}"

@@ -8,7 +8,7 @@ if [[ "${displayCount}" -eq 1 && "${runImmediately}" -eq 1 ]]; then
     	run trigger "showFavourites" in workflow "com.firefingers21.resolutionchanger"
     end tell'
 else
-    awk -v sort_displays="$sort_displays" '
+    awk -v sort_displays="${sort_displays}" '
         BEGIN {
             FS=": "
             print "{\"items\": ["
@@ -18,7 +18,7 @@ else
             if ($NF=="MacBook built in screen") {type="Mac built in screen"} else {type=$NF}
         }
         /^Resolution:/ { resolution=$NF }
-        /^Hertz:/ { hertz="@" $NF "Hz" }
+        /^Hertz:/ { hertz=" - " $NF "Hz" }
         /^Scaling:/ { if ($NF=="on") {scaled="(Scaled)"} else {scaled=""} }
         /^Enabled:/ { if ($NF=="true") run="true" }
         /current mode$/ {
@@ -27,7 +27,7 @@ else
                 subtitle=$0; sub(" <-- current mode", "", subtitle)
                 mode=substr($1, 3); sub("mode ", "", mode)
                 metadata=type; gsub(/ /, "_", metadata)
-                printf "{%s\"title\": \"%s\", \"subtitle\": \"Current Resolution: %s%s %s\", \"icon\": {\"path\": \"images/external.png\"}, \"variables\": {\"serialID\": \"%s\", \"deviceName\": \"%s\", \"currentTitle\": \"Current resolution: Mode %s — %s%s %s\", \"currentSubtitle\": \"%s\"}},", uid, type, resolution, hertz, scaled, screenId, metadata, mode, resolution, hertz, scaled, substr(subtitle, 3)
+                printf "{%s\"title\": \"%s\", \"subtitle\": \"Current Resolution: %s%s %s\", \"icon\": {\"path\": \"images/external.png\"}, \"variables\": {\"serialID\": \"%s\", \"deviceName\": \"%s\", \"currentSubtitle\": \"%s\"}},", uid, type, resolution, hertz, scaled, screenId, metadata, resolution, hertz, scaled, substr(subtitle, 3)
             }
         }
         END {
